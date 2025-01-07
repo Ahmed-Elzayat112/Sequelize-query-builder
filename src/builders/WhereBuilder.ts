@@ -6,7 +6,7 @@ export class WhereBuilder {
     if (!validOperators.includes(operator)) {
       throw new Error(`Invalid operator: ${operator}`);
     }
-
+    // Format the value correctly depending on whether it is an array or not
     const formattedValue = Array.isArray(value) ? `(${value.map((v) => `'${v}'`).join(", ")})` : `'${value}'`;
 
     return `${String(field)} ${operator} ${formattedValue}`;
